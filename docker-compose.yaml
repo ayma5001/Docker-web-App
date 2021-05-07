@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+ database:
+   image: mongo
+   volumes:
+     - mongo-data-volume-4:/data/db
+
+ website:
+   depends_on:
+     - database
+   image: ayma5001/mahmoud_web_app
+   ports:
+     - "4000:3000"
+   
+
+volumes:
+    mongo-data-volume-4:
+        driver: local
